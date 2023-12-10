@@ -11,8 +11,8 @@ public class Veicolo {
 	}
 	
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
+	public String toString() 
+	{
 		return super.toString();
 	}
 

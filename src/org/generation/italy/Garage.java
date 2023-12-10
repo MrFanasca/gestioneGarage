@@ -10,7 +10,7 @@ import org.generation.italy.model.Veicolo;
 public class Garage {
 
 	private ArrayList <Veicolo> veicoliPresenti = new ArrayList <>();
-	int[] numeri=new int[10];
+
 	// immissione di un nuovo veicolo
 	public boolean aggiungiAuto (String marca, int anno, int cilindrata, int porte, String alimentazione) throws Exception
 	{
@@ -46,7 +46,19 @@ public class Garage {
 	}
 	
 	// estrazione dal garage del veicolo che occupa un determinato posto (ritornare l'istanza del veicolo stesso)
-	
-	
+	public boolean estraiVeicolo (int posizione)
+	{
+		boolean esito=false;
+		if (posizione>=0 && posizione<15)
+			System.out.println(posizione);
+		return esito;
+	}
+
 	// stampa della situazione corrente dei posti nel garage veicolo
+	@Override
+	public String toString() {
+		return "Garage [veicoliPresenti=" + veicoliPresenti + "]";
+	}
+	
+	
 }
