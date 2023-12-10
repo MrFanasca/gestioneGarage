@@ -9,42 +9,42 @@ import org.generation.italy.model.Veicolo;
 
 public class Garage {
 
-	private ArrayList <Veicolo> veicoliPresenti = new ArrayList <>();
-			/*{{
-				add(new Auto("Audi", 2005, 1600, 5,"disiel"));
-				add(new Furgone("Volswagen", 1994, 2000, 1800));
-				add(new Moto("Ducati", 2023, 1000, 4));
-			}};*/
+	private ArrayList <Veicolo> veicoliPresenti = new ArrayList <>()
+			{{
+				add(new Auto(0, "Audi", 2005, 1600, 5,"diesel"));
+				add(new Furgone(1, "Volswagen", 1994, 2000, 1800));
+				add(new Moto(2, "Ducati", 2023, 1000, 4));
+			}};
 
 	// immissione di un nuovo veicolo
-	public boolean aggiungiAuto (String marca, int anno, int cilindrata, int porte, String alimentazione) throws Exception
+	public boolean aggiungiAuto (int posizione, String marca, int anno, int cilindrata, int porte, String alimentazione) //throws Exception
 	{
 		boolean esito=false;
 		if (veicoliPresenti.size()<15)
 		{
-			veicoliPresenti.add(new Auto(marca, anno, cilindrata, porte, alimentazione));
+			veicoliPresenti.add(new Auto(posizione, marca, anno, cilindrata, porte, alimentazione));
 			esito=true;
 		}
 		return esito;	
 	}
 	
-	public boolean aggiungiFurgone (String marca, int anno, int cilindrata, int capacità) throws Exception
+	public boolean aggiungiFurgone (int posizione, String marca, int anno, int cilindrata, int capacità) //throws Exception
 	{
 		boolean esito=false;
 		if (veicoliPresenti.size()<15)
 		{
-			veicoliPresenti.add(new Furgone(marca, anno, cilindrata, capacità));
+			veicoliPresenti.add(new Furgone(posizione, marca, anno, cilindrata, capacità));
 			esito=true;
 		}
 		return esito;
 	}
 	
-	public boolean aggiungiMoto (String marca, int anno, int cilindrata, int tempi) throws Exception
+	public boolean aggiungiMoto (int posizione, String marca, int anno, int cilindrata, int tempi) //throws Exception
 	{
 		boolean esito=false;
 		if (veicoliPresenti.size()<15)
 		{
-			veicoliPresenti.add(new Moto(marca, anno, cilindrata, tempi));
+			veicoliPresenti.add(new Moto(posizione, marca, anno, cilindrata, tempi));
 			esito=true;
 		}
 		return esito;
@@ -55,7 +55,11 @@ public class Garage {
 	{
 		boolean esito=false;
 		if (posizione>=0 && posizione<15)
+		{
 			System.out.println(posizione);
+			veicoliPresenti.remove(posizione);
+			esito=true;
+		}
 		return esito;
 	}
 

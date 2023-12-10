@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) /*throws Exception*/ {
 		/* Si realizzi una applicazione java per la gestione di un garage secondo le specifiche:
 			il garage ha al max 15 posti ognuno dei quali è identificato da un num a partire da 0 e per motivi di capienza può ospitare 
 			solo auto moto e furgoni partendo dalla classe base veicolo a motore V; la si estenda, realizzando anche le classi che 
@@ -24,7 +24,7 @@ public class Main {
 		Garage g = new Garage();
 		
 		String risposta, marca, alimentazione;
-		int anno, cilindrata, porte, tempi, capacità;
+		int anno, cilindrata, porte, tempi, capacità, i=3, posizione;
 		
 		
 		
@@ -56,21 +56,21 @@ public class Main {
 						porte=Integer.parseInt(sc.nextLine());
 						System.out.println("Inserire il tipo di alimentazione dell'auto");
 						alimentazione=sc.nextLine();
-						if (!g.aggiungiAuto(marca, anno, cilindrata, porte, alimentazione))
+						if (!g.aggiungiAuto(i, marca, anno, cilindrata, porte, alimentazione))
 							System.out.println("Il garage è pieno");
 						break;
 						
 					case "furgone":	// registrazione furgone
 						System.out.println("Inserire la capacità del vano del furgone in litri");
 						capacità=Integer.parseInt(sc.nextLine());
-						if (!g.aggiungiFurgone(marca, anno, cilindrata, capacità))
+						if (!g.aggiungiFurgone(i, marca, anno, cilindrata, capacità))
 							System.out.println("Il garage è pieno");
 						break;
 						
 					case "moto":	// registrazione moto
 						System.out.println("Inserire il numero di tempi del motore della moto");
 						tempi=Integer.parseInt(sc.nextLine());
-						if (!g.aggiungiMoto(marca, anno, cilindrata, tempi))
+						if (!g.aggiungiMoto(i, marca, anno, cilindrata, tempi))
 							System.out.println("Il garage è pieno");
 						break;
 						
@@ -78,9 +78,16 @@ public class Main {
 						System.out.println("Opzione non valida");
 						break;
 					}
+					i++;
 					break;
 					
 				case "2":	// estrazione dal garage del veicolo che occupa un determinato posto
+					System.out.println("Inserisci la posizione del veicolo che vuoi togliere dal garage?");
+					posizione=Integer.parseInt(sc.nextLine());
+					if (g.estraiVeicolo(posizione))
+						System.out.println("Operazione riuscita");
+					else
+						System.out.println("Operazione non riuscita");
 					break;
 					
 				case "3":	// stampa della situazione corrente dei posti nel garage
