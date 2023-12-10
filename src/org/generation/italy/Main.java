@@ -47,7 +47,7 @@ public class Main {
 					anno=Integer.parseInt(sc.nextLine());
 					System.out.println("Inserire la cilindrata del veicolo");
 					cilindrata=Integer.parseInt(sc.nextLine());
-					System.out.println("Inserisci la tipologia del veicolo");
+					System.out.println("Inserisci la tipologia del veicolo (auto/furgone/moto)");
 					risposta=sc.nextLine();
 					switch (risposta)
 					{
