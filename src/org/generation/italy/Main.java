@@ -1,5 +1,7 @@
 package org.generation.italy;
 
+import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) throws Exception {
@@ -17,12 +19,84 @@ public class Main {
 			   -auto:porte, alimentazione (diesel/benzina)
 			   -moto:tempi
 			   -furgone:capacità */
-			
-			
-			
-			
-		}
 		
+		Scanner sc = new Scanner (System.in);
+		Garage g = new Garage();
+		
+		String risposta, marca, alimentazione;
+		int anno, cilindrata, porte, tempi, capacità;
+		
+		
+		
+			
+			System.out.println("_*_*_Benvenuto nel garage_*_*_");
+			
+			do
+			{
+				System.out.println("\n\nCosa vorresti fare");
+				System.out.println("1 - Registrare un nuovo veicolo");
+				System.out.println("2 - Cancellare un veicolo dal registro");
+				System.out.println("3 - Controllare la situazione corrente");
+				risposta=sc.nextLine();
+				switch (risposta)
+				{
+				case "1":	// immissione di un nuovo veicolo
+					System.out.println("\nInserire la marca del veicolo");
+					marca=sc.nextLine();
+					System.out.println("Inserire l'anno di immatricolazione del veicolo");
+					anno=Integer.parseInt(sc.nextLine());
+					System.out.println("Inserire la cilindrata del veicolo");
+					cilindrata=Integer.parseInt(sc.nextLine());
+					System.out.println("Inserisci la tipologia del veicolo");
+					risposta=sc.nextLine();
+					switch (risposta)
+					{
+					case "auto":	// registrazione auto
+						System.out.println("Inserire il numero di porte dell'auto");
+						porte=Integer.parseInt(sc.nextLine());
+						System.out.println("Inserire il tipo di alimentazione dell'auto");
+						alimentazione=sc.nextLine();
+						if (!g.aggiungiAuto(marca, anno, cilindrata, porte, alimentazione))
+							System.out.println("Il garage è pieno");
+						break;
+						
+					case "furgone":	// registrazione furgone
+						System.out.println("Inserire la capacità del vano del furgone in litri");
+						capacità=Integer.parseInt(sc.nextLine());
+						if (!g.aggiungiFurgone(marca, anno, cilindrata, capacità))
+							System.out.println("Il garage è pieno");
+						break;
+						
+					case "moto":	// registrazione moto
+						System.out.println("Inserire il numero di tempi del motore della moto");
+						tempi=Integer.parseInt(sc.nextLine());
+						if (!g.aggiungiMoto(marca, anno, cilindrata, tempi))
+							System.out.println("Il garage è pieno");
+						break;
+						
+					default:
+						System.out.println("Opzione non valida");
+						break;
+					}
+					break;
+					
+				case "2":	// estrazione dal garage del veicolo che occupa un determinato posto
+					break;
+					
+				case "3":	// stampa della situazione corrente dei posti nel garage
+					System.out.println(g.toString());
+					break;
+					
+				default:
+					System.out.println("Opzione non valida");
+					break;
+				}
+				System.out.println("Desideri fare altro? (s/n)");
+				risposta=sc.nextLine();
+			}	while (risposta.equalsIgnoreCase("s"));
+			
+			System.out.println("Arrivederci");
+		sc.close();
 	}
 
 }
