@@ -24,7 +24,7 @@ public class Main {
 		Garage g = new Garage();
 		
 		String risposta, marca, alimentazione;
-		int anno, cilindrata, porte, tempi, capacità, i=3, posizione;
+		int anno, cilindrata, porte, tempi, capacità, posizione;
 		
 		
 		
@@ -56,21 +56,21 @@ public class Main {
 						porte=Integer.parseInt(sc.nextLine());
 						System.out.println("Inserire il tipo di alimentazione dell'auto");
 						alimentazione=sc.nextLine();
-						if (!g.aggiungiAuto(i, marca, anno, cilindrata, porte, alimentazione))
+						if (!g.aggiungiAuto(marca, anno, cilindrata, porte, alimentazione))
 							System.out.println("Il garage è pieno");
 						break;
 						
 					case "furgone":	// registrazione furgone
 						System.out.println("Inserire la capacità del vano del furgone in litri");
 						capacità=Integer.parseInt(sc.nextLine());
-						if (!g.aggiungiFurgone(i, marca, anno, cilindrata, capacità))
+						if (!g.aggiungiFurgone(marca, anno, cilindrata, capacità))
 							System.out.println("Il garage è pieno");
 						break;
 						
 					case "moto":	// registrazione moto
 						System.out.println("Inserire il numero di tempi del motore della moto");
 						tempi=Integer.parseInt(sc.nextLine());
-						if (!g.aggiungiMoto(i, marca, anno, cilindrata, tempi))
+						if (!g.aggiungiMoto(marca, anno, cilindrata, tempi))
 							System.out.println("Il garage è pieno");
 						break;
 						
@@ -78,7 +78,6 @@ public class Main {
 						System.out.println("Opzione non valida");
 						break;
 					}
-					i++;
 					break;
 					
 				case "2":	// estrazione dal garage del veicolo che occupa un determinato posto

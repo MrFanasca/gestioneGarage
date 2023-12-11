@@ -17,34 +17,34 @@ public class Garage {
 			}};
 
 	// immissione di un nuovo veicolo
-	public boolean aggiungiAuto (int posizione, String marca, int anno, int cilindrata, int porte, String alimentazione) //throws Exception
+	public boolean aggiungiAuto (String marca, int anno, int cilindrata, int porte, String alimentazione) //throws Exception
 	{
 		boolean esito=false;
-		if (veicoliPresenti.size()<15)
+		if (veicoliPresenti.size()<=15)
 		{
-			veicoliPresenti.add(new Auto(posizione, marca, anno, cilindrata, porte, alimentazione));
+			veicoliPresenti.add(new Auto(veicoliPresenti.size(), marca, anno, cilindrata, porte, alimentazione));
 			esito=true;
 		}
 		return esito;	
 	}
 	
-	public boolean aggiungiFurgone (int posizione, String marca, int anno, int cilindrata, int capacità) //throws Exception
+	public boolean aggiungiFurgone (String marca, int anno, int cilindrata, int capacità) //throws Exception
 	{
 		boolean esito=false;
-		if (veicoliPresenti.size()<15)
+		if (veicoliPresenti.size()<=15)
 		{
-			veicoliPresenti.add(new Furgone(posizione, marca, anno, cilindrata, capacità));
+			veicoliPresenti.add(new Furgone(veicoliPresenti.size(), marca, anno, cilindrata, capacità));
 			esito=true;
 		}
 		return esito;
 	}
 	
-	public boolean aggiungiMoto (int posizione, String marca, int anno, int cilindrata, int tempi) //throws Exception
+	public boolean aggiungiMoto (String marca, int anno, int cilindrata, int tempi) //throws Exception
 	{
 		boolean esito=false;
-		if (veicoliPresenti.size()<15)
+		if (veicoliPresenti.size()<=15)
 		{
-			veicoliPresenti.add(new Moto(posizione, marca, anno, cilindrata, tempi));
+			veicoliPresenti.add(new Moto(veicoliPresenti.size(), marca, anno, cilindrata, tempi));
 			esito=true;
 		}
 		return esito;
